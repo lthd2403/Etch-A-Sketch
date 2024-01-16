@@ -13,13 +13,13 @@
     <div class="bodyContainer">  
         <div class="buttonContainer">
             <button onclick="changeColor('black')">Pen color</button>
-            <button onclick="changeColor('black')">Shading</button>
-            <button onclick="changeColor('black')">Lighten</button>
+            <button onclick="changeColor('shading')">Shading</button>
+            <button onclick="changeColor('lighten')">Lighten</button>
             <button onclick="changeColor('rainbow')">Rainbow</button>
             <button onclick="changeColor('white')">Eraser</button>
             <input type="range" min="1" max="64" value="16" step="1" class="slider" id="gridSize"></input>
             <span class="num" id="Num">Grid size: 16x16</span>
-            <button id="clear">Clear</button>
+            <button onclick="clearGrid()">Clear</button>
         </div>
 
         <div id="divGrid" class="gridContainer"></div>

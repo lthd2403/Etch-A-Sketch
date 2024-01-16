@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     for (let i = 0; i < defaultGrid * defaultGrid; i++) {
         let div = document.createElement("div");
-
+        div.classList = "divChild";
         // Add mousemove and click event listeners to each grid element
         div.addEventListener("mousemove", () => {
             if (mouseDown) {
@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /* Add divs to the div container based on the size user wants */
         for (let i = 0; i < gridSize * gridSize; i++) {
             let div = document.createElement("div");
+            div.classList = "divChild";
             div.addEventListener("mousemove", () => {
                 if (mouseDown) {
                     colorSquare.call(div);
@@ -66,12 +67,18 @@ document.addEventListener('DOMContentLoaded', function() {
     numberInput.addEventListener("input", gridSizeText);
 });
 
+/* Set all the square grids to default color*/
+function clearGrid() {
+    const divChildren = document.querySelectorAll(".divChild");
+    divChildren.forEach(div => div.style.backgroundColor = "white");
+};
+
 /* Color mode */
 function changeColor(choice) {
     color = choice;
 }
 
-/* Color square function */
+/* Set color for each square */
 function colorSquare() {
     if (color === "rainbow") {
         this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
