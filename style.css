@@ -20,7 +20,31 @@ body {
     color: aqua;
     font-size: 50px;
   }
-  .gridContainer {
+  
+.colorSelectContainer {
+    display: flex;
+    margin-top: -50px;
+    margin-left: 415px;
+    margin-bottom: 20px;
+}
+
+input[type=color] {
+    appearance: none;
+    width: 100px;
+    height: 100px; 
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    
+}
+
+input[type=color]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.gridContainer {
     display: grid;
     padding: 20px;
     width: 480px;
@@ -28,44 +52,40 @@ body {
     grid-template-columns: repeat(var(--column), auto);
     grid-template-rows: repeat(var(--row), auto);
     background-color: grey;
-  }
-  
-  .buttonContainer {
+    }
+
+.buttonContainer {
     display: grid;
-    width: 200px;
-    height: 100px;
-    padding: 20px;
     color: white;
     align-items: center;
-    gap: 30px
-  }
+    gap: 30px;
+}
 
-  .slider {
+.slider {
     appearance: none;
     width: 150x;
     height: 10px;
     background-color: white;
     border-radius: 25px;
-  }
-  
-  .slider::-webkit-slider-thumb {
+}
+
+.slider::-webkit-slider-thumb {
     appearance: none;
     height: 25px;
     width: 25px;
     background-color:brown;
     border-radius: 20px;
-  }
-  
-  .num {
+}
+
+.num {
     font-size: 24px;
     color: aqua;
     text-align: center;
-  }
-  
-  button {
+}
+
+button {
     width: 200px;
     height: 50px;
     font-size: 24px;
     font-weight: 600;
-  }
-  
+}
