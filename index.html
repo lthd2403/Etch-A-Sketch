@@ -15,12 +15,12 @@
     </div>
     <div class="bodyContainer">  
         <div class="buttonContainer">
-            <button onclick="changeColor(penColor)">Pen color</button>
-            <button onclick="changeColor('rainbow')">Rainbow</button>
-            <button onclick="changeColor('white')">Eraser</button>
+            <button class="colorButton activeButton" id="penColorButton" onclick="changeColor(penColor)">Pen color</button>
+            <button class="colorButton" id="rainbowButton" onclick="changeColor('rainbow')">Rainbow</button>
+            <button class="colorButton" id="eraserButton" onclick="changeColor('white')">Eraser</button>
             <input type="range" min="1" max="64" value="16" step="1" class="slider" id="gridSize"></input>
             <span class="num" id="Num">Grid size: 16x16</span>
-            <button onclick="clearGrid()">Clear</button>
+            <button class="colorButton" id="clearButton" onclick="clearGrid()">Clear</button>
         </div>
 
         <div id="divGrid" class="gridContainer"></div>

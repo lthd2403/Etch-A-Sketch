@@ -73,6 +73,16 @@ document.addEventListener('DOMContentLoaded', function() {
         changeColor(colorSelectInput.value);
         penColor = colorSelectInput.value;
     });
+
+    const penColorButton = document.querySelector("#penColorButton");
+    const rainbowButton = document.querySelector("#rainbowButton");
+    const eraserButton = document.querySelector("#eraserButton");
+    const clearButton = document.querySelector("#clearButton");
+
+    penColorButton.addEventListener("click", () => changeColorButton('penColorButton'));
+    rainbowButton.addEventListener("click", () => changeColorButton('rainbowButton'));
+    eraserButton.addEventListener("click", () => changeColorButton('eraserButton'));
+    clearButton.addEventListener("click", () => changeColorButton('clearButton'));
 });
 
 /* Set all the square grids to default color*/
@@ -93,8 +103,27 @@ function colorSquare() {
     } else {
         this.style.backgroundColor = color;
     }
-}
+};
 
+/* chang background of a button when click it and remove when click to new button */
+function changeColorButton(clickedButtonId) {
+    const buttons = document.querySelectorAll(".colorButton");
 
+    buttons.forEach(button => {
+        if (button.id === clickedButtonId) {
+            if (clickedButtonId === 'clearButton'){
+                button.classList.add("activeButton");
+                setTimeout(() => {
+                    button.classList.remove("activeButton");
+                    penColorButton.classList.add("activeButton");
+                }, 1000);
+            } else {
+                button.classList.add("activeButton");
+            }
+        } else {
+            button.classList.remove("activeButton");
+        };
+    });
+};
 
 
