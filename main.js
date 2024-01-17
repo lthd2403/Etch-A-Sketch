@@ -1,5 +1,6 @@
-let color = "black";
 let mouseDown = false;
+let color = "black";
+let penColor = "black";
 
 document.addEventListener('DOMContentLoaded', function() {
     const divGrid = document.querySelector("#divGrid");
@@ -65,6 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     numberInput.addEventListener("input", gridSizeText);
+
+    /* Set pen color to be input color*/
+    const colorSelectInput = document.querySelector("#colorSelect");
+    colorSelectInput.addEventListener("input", () => {
+        changeColor(colorSelectInput.value);
+        penColor = colorSelectInput.value;
+    });
 });
 
 /* Set all the square grids to default color*/
@@ -82,21 +90,11 @@ function changeColor(choice) {
 function colorSquare() {
     if (color === "rainbow") {
         this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-    }else  if (color === "lighten") { /* Lighten square grids */
-        const div = document.querySelector(".divChild")
-         /* Get the current background color */
-        const currentColor = getComputedStyle(div).getPropertyValue('background-color');
-        // Convert the color to an RGB array
-        const rgbArray = currentColor.match(/\d+/g).map(Number);
-         // Calculate a lighter color by increasing the brightness
-        const lighterColor = `rgb(${rgbArray[0]}, ${rgbArray[1]}, ${Math.min(rgbArray[2] + 25, 255)})`;
-        this.style.backgroundColor = lighterColor;
-    } else  if (color === "shading") { /* shading square grids */
-
     } else {
         this.style.backgroundColor = color;
     }
 }
+
 
 
 
